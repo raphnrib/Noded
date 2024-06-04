@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://uqsk1t7kulxg"]
+
+[ext_resource type="Script" path="res://editing_properties/editing_panel_conainer.gd" id="1_48su1"]
+[ext_resource type="Texture2D" uid="uid://dp87jsrvjqb8e" path="res://UI/cross-mark_lorc.png" id="2_s54hk"]
+
+[node name="EditingPanelConainer" type="PanelContainer"]
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_48su1")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ItemsRoot" type="VBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ItemsRoot"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/ItemsRoot/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Local property Spaces collection editor"
+
+[node name="DelButton" type="Button" parent="MarginContainer/ItemsRoot/HBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(0.882353, 0.439216, 0.333333, 1)
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+icon = ExtResource("2_s54hk")
+expand_icon = true
+
+[connection signal="pressed" from="MarginContainer/ItemsRoot/HBoxContainer/DelButton" to="." method="_on_close_windoe"]

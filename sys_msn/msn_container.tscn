@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://i0rlj26ag3py"]
+
+[ext_resource type="Script" path="res://sys_msn/msn_container.gd" id="1_hb0h1"]
+
+[node name="MsnContainer" type="MarginContainer"]
+script = ExtResource("1_hb0h1")
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0.87451, 0.901961, 0.913725, 1)
+layout_mode = 2
+theme_type_variation = &"MsnLabel"
+text = "This is a new message from the system"

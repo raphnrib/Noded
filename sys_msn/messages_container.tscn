@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnvf0hqp64eje"]
+
+[ext_resource type="Script" path="res://sys_msn/messages_container.gd" id="1_ca1a3"]
+[ext_resource type="Theme" uid="uid://csyr5ylftdp4l" path="res://assets/new_theme.tres" id="1_j7v2l"]
+
+[node name="MessagesContainer" type="PanelContainer"]
+offset_bottom = 504.0
+mouse_filter = 2
+theme = ExtResource("1_j7v2l")
+theme_type_variation = &"MsnBarPanel"
+script = ExtResource("1_ca1a3")
+
+[node name="MessagesDisplay" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 2

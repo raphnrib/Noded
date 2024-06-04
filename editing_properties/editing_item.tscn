@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7ju244fuclnn"]
+
+[ext_resource type="Script" path="res://editing_properties/editing_item.gd" id="1_4x2kb"]
+[ext_resource type="Texture2D" uid="uid://dp87jsrvjqb8e" path="res://UI/cross-mark_lorc.png" id="1_u3b4p"]
+
+[node name="EditingItem" type="PanelContainer"]
+self_modulate = Color(0.501961, 0.501961, 0.501961, 1)
+script = ExtResource("1_4x2kb")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"PanelDisplay"
+
+[node name="PropNameLabel" type="Label" parent="MarginContainer/HBoxContainer/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "property_whatever"
+
+[node name="PropLinksPanel" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+self_modulate = Color(1, 0.917647, 0.654902, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"PanelDisplay"
+
+[node name="PropLinksLabel" type="Label" parent="MarginContainer/HBoxContainer/PropLinksPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "this, that, those and theirs"
+
+[node name="DelButton" type="Button" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(0.882353, 0.439216, 0.333333, 1)
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+icon = ExtResource("1_u3b4p")
+expand_icon = true
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/DelButton" to="." method="_on_del_button_pressed"]

@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx3owufus73e3"]
+
+[ext_resource type="Theme" uid="uid://csyr5ylftdp4l" path="res://assets/new_theme.tres" id="1_uspnn"]
+
+[node name="CancelCanvas" type="Button"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_uspnn")
+theme_type_variation = &"CancelCanvas"

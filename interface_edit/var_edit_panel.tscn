@@ -1,0 +1,201 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnm6huqu5mkxq"]
+
+[ext_resource type="Theme" uid="uid://csyr5ylftdp4l" path="res://assets/new_theme.tres" id="1_iyedd"]
+[ext_resource type="Script" path="res://interface_edit/var_edit_panel.gd" id="2_3rsxa"]
+
+[node name="VarEditPanel" type="PanelContainer"]
+theme = ExtResource("1_iyedd")
+theme_type_variation = &"FloatingPanel"
+script = ExtResource("2_3rsxa")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Header" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VarNameEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/VBoxContainer/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "MyVar"
+placeholder_text = "Variable Name"
+
+[node name="VarTypeEdit" type="MenuButton" parent="MarginContainer/VBoxContainer/VBoxContainer/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Type"
+flat = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="IsConstButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.431373, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0.415686)
+theme_override_constants/outline_size = 3
+toggle_mode = true
+text = "const"
+
+[node name="ExportButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.811765, 0.737255, 0.517647, 1)
+theme_override_colors/font_pressed_color = Color(0.913149, 0.863778, 0.718293, 1)
+theme_override_colors/font_outline_color = Color(0.639216, 0.639216, 0.639216, 0.447059)
+theme_override_constants/outline_size = 2
+toggle_mode = true
+text = "@export"
+
+[node name="DefValButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Set a default value for the variable"
+toggle_mode = true
+text = "default"
+
+[node name="StrValueEdit" type="LineEdit" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="BoolValueEdit" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+toggle_mode = true
+text = "value"
+
+[node name="Numbers Separator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="FloatVecContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="FloatValueEdit" type="SpinBox" parent="MarginContainer/VBoxContainer/FloatVecContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+allow_greater = true
+allow_lesser = true
+update_on_text_changed = true
+
+[node name="FloatYValueEdit" type="SpinBox" parent="MarginContainer/VBoxContainer/FloatVecContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+allow_greater = true
+allow_lesser = true
+update_on_text_changed = true
+
+[node name="FloatZValueEdit" type="SpinBox" parent="MarginContainer/VBoxContainer/FloatVecContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+allow_greater = true
+allow_lesser = true
+update_on_text_changed = true
+
+[node name="FloatWValueEdit" type="SpinBox" parent="MarginContainer/VBoxContainer/FloatVecContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+allow_greater = true
+allow_lesser = true
+update_on_text_changed = true
+
+[node name="IntVecContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="IntValueEdit" type="SpinBox" parent="MarginContainer/VBoxContainer/IntVecContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+rounded = true
+allow_greater = true
+allow_lesser = true
+update_on_text_changed = true
+
+[node name="IntYValueEdit" type="SpinBox" parent="MarginContainer/VBoxContainer/IntVecContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+rounded = true
+allow_greater = true
+allow_lesser = true
+update_on_text_changed = true
+
+[node name="IntZValueEdit" type="SpinBox" parent="MarginContainer/VBoxContainer/IntVecContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+rounded = true
+allow_greater = true
+allow_lesser = true
+update_on_text_changed = true
+
+[node name="IntWValueEdit" type="SpinBox" parent="MarginContainer/VBoxContainer/IntVecContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+rounded = true
+allow_greater = true
+allow_lesser = true
+update_on_text_changed = true
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="CancelBtn" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.368627, 0.121569, 0.117647, 1)
+theme_override_colors/font_outline_color = Color(0.85098, 0.498039, 0.494118, 0.403922)
+theme_override_constants/outline_size = 9
+text = "Cancel"
+
+[node name="ConfirmBtn" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.33055, 0.55, 0.2365, 1)
+theme_override_colors/font_outline_color = Color(0.172549, 0.290196, 0.12549, 0.368627)
+theme_override_constants/outline_size = 12
+text = "Confirm
+"
+
+[connection signal="toggled" from="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/IsConstButton" to="." method="toggle_const"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/ExportButton" to="." method="toggle_export"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/DefValButton" to="." method="toggle_def_value"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/CancelBtn" to="." method="cancel"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/ConfirmBtn" to="." method="confirm"]

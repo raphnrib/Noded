@@ -1,0 +1,84 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhnqer3vjbqth"]
+
+[ext_resource type="Script" path="res://state_machine/nodes/left_menu/sm_param_container.gd" id="1_ml62l"]
+
+[node name="SMParamContainer" type="PanelContainer"]
+offset_right = 107.0
+offset_bottom = 36.0
+theme_type_variation = &"PanelDisplay"
+script = ExtResource("1_ml62l")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "float"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Param"
+placeholder_text = "Param Name"
+
+[node name="TimerTime" type="HBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="WaitTime" type="SpinBox" parent="VBoxContainer/TimerTime"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"SmallLineEdit"
+min_value = 0.01
+step = 0.25
+value = 0.01
+allow_greater = true
+alignment = 1
+suffix = "sec"
+
+[node name="UseRandom" type="CheckButton" parent="VBoxContainer/TimerTime"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Make this value random each time"
+
+[node name="TimerRandOpts" type="HBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="MinTime" type="SpinBox" parent="VBoxContainer/TimerRandOpts"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+min_value = 0.01
+step = 0.25
+value = 0.01
+allow_greater = true
+alignment = 1
+suffix = "s"
+
+[node name="MaxTime" type="SpinBox" parent="VBoxContainer/TimerRandOpts"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+min_value = 0.01
+step = 0.25
+value = 0.01
+allow_greater = true
+alignment = 1
+suffix = "s"
+
+[node name="AddToGridButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Add Node"
+
+[connection signal="text_submitted" from="VBoxContainer/HBoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="pressed" from="VBoxContainer/AddToGridButton" to="." method="_on_add_to_grid_button_pressed"]

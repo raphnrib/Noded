@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://d20bxf7tyse2j"]
+
+[ext_resource type="Script" path="res://class_regions/enums/enum_item_display.gd" id="1_exlws"]
+[ext_resource type="Texture2D" uid="uid://dp87jsrvjqb8e" path="res://UI/cross-mark_lorc.png" id="2_di225"]
+
+[node name="EnumItemDisplay" type="PanelContainer"]
+theme_type_variation = &"PanelDisplay"
+script = ExtResource("1_exlws")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "ITEM_ONE"
+
+[node name="ExcludeItem" type="Button" parent="HBoxContainer"]
+modulate = Color(0.882353, 0.439216, 0.333333, 1)
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_type_variation = &"SmallBtn"
+icon = ExtResource("2_di225")
+expand_icon = true
+
+[connection signal="pressed" from="HBoxContainer/ExcludeItem" to="." method="_on_exclude_item_pressed"]

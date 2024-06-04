@@ -1,0 +1,122 @@
+++GlobalSpace
+
+
+> {Space}
+	> vars
+		name :String
+		node_name :String
+		end<
+	> statics
+		:String get_unique_name(new_name :String space_array array :Space)
+		end<
+	> virtuals
+		update_data(data :Dictionary)
+		end<
+	
+	> {VarSpace}
+		classend<
+
+	> {MethodSpace}
+		> vars
+			array vars :VarSpace
+			end<
+		classend<
+
+	> {CassSpace}
+		> vars
+			array vars :VarSpace
+			array methods :MethodSpace
+			end<
+		classend<
+	> {GlobalSpace}
+		> vars
+			array vars :CassSpace
+			end<
+		classend<
+	classend<
+
+> {ClassRegion}
+	> enums
+		tp .CONSTRUCTORS .VARIABLES .PROPERTIES .SIGNALS .CALLBACKS .METHODS
+		end<
+	> virtuals
+		get_type() :tp
+		end<
+		{ConstrucContainer}>
+			> overriten
+				get_type() .CONSTRUCTORS
+				end<
+			classend<
+		{VarsContainer}>
+			> overriten
+				get_type() .VARIABLES
+				end<
+			classend<
+		{PropsContainer}>
+			> overriten
+				get_type() .PROPERTIES
+				end<
+			classend<
+		{SignalsContainer}>
+			> overriten
+				get_type() .SIGNALS
+				end<
+			classend<
+		{CallbacksContainer}>
+			> overriten
+				get_type() .CALLBACKS
+				end<
+			classend<
+		{MethodsContainer}>
+			> overriten
+				get_type() .METHODS
+				end<
+			classend<
+	classend<
+
+> {Interface} |Interface|
+	> vars
+		edited_data :Dictionary
+		end<
+	> signals
+		on_confirmed
+			/* contents
+			caller should implement:
+			var new_values = Interface.edited_data
+			*/
+		end<
+	> methods
+		call_var_edit_window(data :Dictionary)
+			/* contents
+			'pos' node position
+			'type' type of var
+			'value' current value of the variable
+			*/
+		
+		confirm_edit()
+			/* contents
+			Update edited_data Dictionary
+			on_confirmed.emit()
+			
+			# Cleanup
+			edited_data.clean()
+			# close edit window
+			*/
+		end<
+	classend<
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

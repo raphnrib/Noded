@@ -1,0 +1,205 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjkbqt7v35ryx"]
+
+[ext_resource type="Theme" uid="uid://csyr5ylftdp4l" path="res://assets/new_theme.tres" id="1_ymq1v"]
+[ext_resource type="Script" path="res://Trees/var_panel_container.gd" id="1_yy7a1"]
+[ext_resource type="StyleBox" uid="uid://dpl4qvsvjvrel" path="res://assets/func_setup_space_style.tres" id="3_kxroi"]
+[ext_resource type="PackedScene" uid="uid://bqxc8fusk3jye" path="res://Trees/arg_edit_container.tscn" id="3_t2k0s"]
+
+[node name="VarPanelContainer" type="PanelContainer"]
+theme = ExtResource("1_ymq1v")
+script = ExtResource("1_yy7a1")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Header" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VarNameEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "MyVar"
+placeholder_text = "Variable Name"
+
+[node name="VarTypeEdit" type="MenuButton" parent="MarginContainer/VBoxContainer/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Type"
+flat = false
+
+[node name="StrValueEdit" type="LineEdit" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="FloatVecContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="FloatValueEdit" type="SpinBox" parent="MarginContainer/VBoxContainer/FloatVecContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+allow_greater = true
+allow_lesser = true
+update_on_text_changed = true
+
+[node name="FloatYValueEdit" type="SpinBox" parent="MarginContainer/VBoxContainer/FloatVecContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+allow_greater = true
+allow_lesser = true
+update_on_text_changed = true
+
+[node name="FloatZValueEdit" type="SpinBox" parent="MarginContainer/VBoxContainer/FloatVecContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+allow_greater = true
+allow_lesser = true
+update_on_text_changed = true
+
+[node name="FloatWValueEdit" type="SpinBox" parent="MarginContainer/VBoxContainer/FloatVecContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+allow_greater = true
+allow_lesser = true
+update_on_text_changed = true
+
+[node name="IntVecContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="IntValueEdit" type="SpinBox" parent="MarginContainer/VBoxContainer/IntVecContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+rounded = true
+allow_greater = true
+allow_lesser = true
+update_on_text_changed = true
+
+[node name="IntYValueEdit" type="SpinBox" parent="MarginContainer/VBoxContainer/IntVecContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+rounded = true
+allow_greater = true
+allow_lesser = true
+update_on_text_changed = true
+
+[node name="IntZValueEdit" type="SpinBox" parent="MarginContainer/VBoxContainer/IntVecContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+rounded = true
+allow_greater = true
+allow_lesser = true
+update_on_text_changed = true
+
+[node name="IntWValueEdit" type="SpinBox" parent="MarginContainer/VBoxContainer/IntVecContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+rounded = true
+allow_greater = true
+allow_lesser = true
+update_on_text_changed = true
+
+[node name="BoolValueEdit" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+text = "value"
+
+[node name="FunctionSetupSpace" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = ExtResource("3_kxroi")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/FunctionSetupSpace"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/FunctionSetupSpace/MarginContainer"]
+layout_mode = 2
+
+[node name="FuncArgsReturn" type="HBoxContainer" parent="MarginContainer/VBoxContainer/FunctionSetupSpace/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="ArgsRoot" type="VBoxContainer" parent="MarginContainer/VBoxContainer/FunctionSetupSpace/MarginContainer/VBoxContainer/FuncArgsReturn"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ArgEditionContainer" parent="MarginContainer/VBoxContainer/FunctionSetupSpace/MarginContainer/VBoxContainer/FuncArgsReturn/ArgsRoot" instance=ExtResource("3_t2k0s")]
+layout_mode = 2
+
+[node name="AddFuncArgBtn" type="Button" parent="MarginContainer/VBoxContainer/FunctionSetupSpace/MarginContainer/VBoxContainer/FuncArgsReturn/ArgsRoot"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Add Arg"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/FunctionSetupSpace/MarginContainer/VBoxContainer/FuncArgsReturn"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/FunctionSetupSpace/MarginContainer/VBoxContainer/FuncArgsReturn/VBoxContainer"]
+layout_mode = 2
+text = "Returns
+"
+
+[node name="FuncReturnVarType" type="OptionButton" parent="MarginContainer/VBoxContainer/FunctionSetupSpace/MarginContainer/VBoxContainer/FuncArgsReturn/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+item_count = 1
+selected = 0
+popup/item_0/text = "VOID"
+popup/item_0/id = 0
+
+[node name="StartImplementationBtn" type="Button" parent="MarginContainer/VBoxContainer/FunctionSetupSpace/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Implement"
+
+[node name="FuncNodeOptions" type="HBoxContainer" parent="MarginContainer/VBoxContainer/FunctionSetupSpace/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="FocusOnImplementation" type="Button" parent="MarginContainer/VBoxContainer/FunctionSetupSpace/MarginContainer/VBoxContainer/FuncNodeOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Focus"
+
+[node name="EraseImplementation" type="Button" parent="MarginContainer/VBoxContainer/FunctionSetupSpace/MarginContainer/VBoxContainer/FuncNodeOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Erase"
+
+[node name="ConfirmStartImplement" type="ConfirmationDialog" parent="MarginContainer/VBoxContainer/FunctionSetupSpace/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+title = "Notice that..."
+size = Vector2i(256, 184)
+ok_button_text = "Implement"
+dialog_text = "The type of this element will stay locked as 'func' until there's no more nodes related to it."
+dialog_autowrap = true
+
+[connection signal="text_submitted" from="MarginContainer/VBoxContainer/Header/VarNameEdit" to="." method="_on_var_name_edited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/FunctionSetupSpace/MarginContainer/VBoxContainer/FuncArgsReturn/ArgsRoot/AddFuncArgBtn" to="." method="add_new_func_argument"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/FunctionSetupSpace/MarginContainer/VBoxContainer/StartImplementationBtn" to="." method="_on_start_implementation_pressed"]
+[connection signal="confirmed" from="MarginContainer/VBoxContainer/FunctionSetupSpace/MarginContainer/VBoxContainer/ConfirmStartImplement" to="." method="confirmation_start_implementatio"]

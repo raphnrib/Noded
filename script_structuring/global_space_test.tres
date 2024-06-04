@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="GlobalSpace" load_steps=4 format=3 uid="uid://b5hlnyyyx7c5b"]
+
+[ext_resource type="Script" path="res://script_structuring/class_space.gd" id="1_oklry"]
+[ext_resource type="Script" path="res://script_structuring/global_space.gd" id="1_xjmsg"]
+
+[sub_resource type="Resource" id="Resource_hwkyy"]
+script = ExtResource("1_oklry")
+inheritance = "Node"
+vars = Array[Resource("res://script_structuring/var_space.gd")]([])
+methods = Array[Resource("res://script_structuring/method_space.gd")]([])
+name = "clean_space"
+node_name = "Node"
+
+[resource]
+script = ExtResource("1_xjmsg")
+proj_folder = "C:/MyGodotProj/"
+classes = Array[ExtResource("1_oklry")]([SubResource("Resource_hwkyy")])
+vars = Array[Resource("res://script_structuring/var_space.gd")]([])
+name = "clean_space"
+node_name = "Node"

@@ -1,0 +1,88 @@
+[gd_scene load_steps=3 format=3 uid="uid://r656yrx3dtw7"]
+
+[ext_resource type="Script" path="res://action_sequences/action_sequence_panel.gd" id="1_xfykp"]
+[ext_resource type="Texture2D" uid="uid://dp87jsrvjqb8e" path="res://UI/cross-mark_lorc.png" id="2_wnj3k"]
+
+[node name="ActionSequenceNode" type="GraphElement"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 232.0
+offset_bottom = 181.0
+script = ExtResource("1_xfykp")
+
+[node name="ActionSequencePanel" type="PanelContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ActionSequencePanel"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ActionSequencePanel/MarginContainer"]
+layout_mode = 2
+
+[node name="StateOptions" type="HBoxContainer" parent="ActionSequencePanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="SelectButton" type="CheckButton" parent="ActionSequencePanel/MarginContainer/VBoxContainer/StateOptions"]
+visible = false
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="DeleteActionSeqButton" type="Button" parent="ActionSequencePanel/MarginContainer/VBoxContainer/StateOptions"]
+unique_name_in_owner = true
+self_modulate = Color(0.882353, 0.439216, 0.333333, 1)
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+theme_type_variation = &"SmallBtn"
+icon = ExtResource("2_wnj3k")
+expand_icon = true
+
+[node name="StartStateContainer" type="HBoxContainer" parent="ActionSequencePanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="StartState" type="VBoxContainer" parent="ActionSequencePanel/MarginContainer/VBoxContainer/StartStateContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="StateLabel" type="PanelContainer" parent="ActionSequencePanel/MarginContainer/VBoxContainer/StartStateContainer/StartState"]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+theme_type_variation = &"PanelDisplay"
+
+[node name="Label" type="Label" parent="ActionSequencePanel/MarginContainer/VBoxContainer/StartStateContainer/StartState/StateLabel"]
+layout_mode = 2
+text = "Program Start"
+
+[node name="StateDescription" type="PanelContainer" parent="ActionSequencePanel/MarginContainer/VBoxContainer/StartStateContainer/StartState"]
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 2
+
+[node name="TextEdit" type="TextEdit" parent="ActionSequencePanel/MarginContainer/VBoxContainer/StartStateContainer/StartState/StateDescription"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+text = "Main Screen"
+placeholder_text = "State description"
+wrap_mode = 1
+
+[node name="HSplitContainer" type="HSplitContainer" parent="ActionSequencePanel/MarginContainer/VBoxContainer/StartStateContainer"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="ActsRoot" type="VBoxContainer" parent="ActionSequencePanel/MarginContainer/VBoxContainer/StartStateContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CreateActionButton" type="Button" parent="ActionSequencePanel/MarginContainer/VBoxContainer/StartStateContainer/ActsRoot"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "Create
+Action"
+
+[connection signal="position_offset_changed" from="." to="." method="_on_position_offset_changed"]
+[connection signal="pressed" from="ActionSequencePanel/MarginContainer/VBoxContainer/StateOptions/DeleteActionSeqButton" to="." method="_on_delete_action_seq_button_pressed"]
+[connection signal="pressed" from="ActionSequencePanel/MarginContainer/VBoxContainer/StartStateContainer/ActsRoot/CreateActionButton" to="." method="_on_create_action_button_pressed"]
