@@ -1,0 +1,98 @@
+[gd_scene load_steps=3 format=3 uid="uid://di2nb5yrg3p6"]
+
+[ext_resource type="Script" path="res://addons/noded/story_telling/story.gd" id="1_0wgcb"]
+[ext_resource type="Theme" uid="uid://b66pwk66dh8td" path="res://addons/noded/noded_theme.tres" id="1_dgsjk"]
+
+[node name="Story" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_dgsjk")
+script = ExtResource("1_0wgcb")
+
+[node name="GraphEdit" type="GraphEdit" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scroll_offset = Vector2(-40, -40)
+
+[node name="GraphNode" type="GraphNode" parent="GraphEdit"]
+layout_mode = 0
+offset_left = 383.0
+offset_top = 187.0
+offset_right = 506.0
+offset_bottom = 242.0
+mouse_filter = 1
+position_offset = Vector2(343, 147)
+
+[node name="GraphElement" type="GraphElement" parent="GraphEdit"]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 150.0
+offset_right = 326.0
+offset_bottom = 331.0
+position_offset = Vector2(65, 110)
+
+[node name="PanelContainer" type="PanelContainer" parent="GraphEdit/GraphElement"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GraphEdit/GraphElement/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GraphEdit/GraphElement/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Main Plot"
+
+[node name="TextEdit" type="TextEdit" parent="GraphEdit/GraphElement/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "Outline the primary storyline. Identify the main conflict, key events, and the resolution."
+wrap_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Main Plot"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"IndentPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="TextEdit" type="TextEdit" parent="HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
