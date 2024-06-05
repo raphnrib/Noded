@@ -10,8 +10,8 @@ func get_data() -> NodedCultureData:
 	var n_cdata := NodedCultureData.new()
 	n_cdata.name = cult_name_line_edit.text
 	n_cdata.description = descript_text_edit.text
-	n_cdata.cult_index = culture_tp_select.get_selected_id()
-	n_cdata.cult_name = culture_tp_select.get_item_text(n_cdata.cult_index)
+	n_cdata.classif_index = culture_tp_select.get_selected_id()
+	n_cdata.classif_name = culture_tp_select.get_item_text(n_cdata.classif_index)
 	return n_cdata
 
 

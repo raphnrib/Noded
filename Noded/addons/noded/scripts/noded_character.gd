@@ -1,0 +1,2 @@
+extends NodedEntryData
+class_name NodedCharacterData

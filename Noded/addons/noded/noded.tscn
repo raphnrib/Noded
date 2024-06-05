@@ -22,12 +22,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+current_tab = 1
 
-[node name="Story" parent="TabContainer" instance=ExtResource("1_7poap")]
+[node name="Story Plot" parent="TabContainer" instance=ExtResource("1_7poap")]
+visible = false
 layout_mode = 2
 
-[node name="Settings" parent="TabContainer" instance=ExtResource("3_2xsk4")]
-visible = false
+[node name="Story Settings" parent="TabContainer" instance=ExtResource("3_2xsk4")]
 layout_mode = 2
 
 [node name="Process" type="Control" parent="TabContainer"]
