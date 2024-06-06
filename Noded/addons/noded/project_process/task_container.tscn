@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://qv3x1g54y8q"]
+
+[ext_resource type="Script" path="res://addons/noded/project_process/task_container.gd" id="1_vs17k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ayiml"]
+draw_center = false
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="TaskContainer" type="PanelContainer"]
+theme_type_variation = &"IndentPanel"
+script = ExtResource("1_vs17k")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="DelTask" type="Button" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "X"
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Label"
+
+[node name="TaskLabelLineEdit" type="LineEdit" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Task Name"
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Duration"
+
+[node name="DurationSpinBox" type="SpinBox" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.0
+value = 1.0
+rounded = true
+allow_greater = true
+alignment = 1
+suffix = "days"
+
+[node name="ShowOnTimeline" type="Button" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Timeline"
+
+[node name="HighLightPanel" type="PanelContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ayiml")
+
+[connection signal="value_changed" from="MarginContainer/HBoxContainer/DurationSpinBox" to="." method="_on_duration_changed"]

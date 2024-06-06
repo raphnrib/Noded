@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="NodedData" load_steps=12 format=3 uid="uid://hxehbrj0w4uy"]
+
+[ext_resource type="Script" path="res://addons/noded/project_process/scripts/feature_data.gd" id="1_2ocv5"]
+[ext_resource type="Script" path="res://addons/noded/scripts/noded_data.gd" id="1_n6lct"]
+[ext_resource type="Script" path="res://addons/noded/scripts/noded_entry.gd" id="2_5drst"]
+[ext_resource type="Script" path="res://addons/noded/project_process/scripts/task_data.gd" id="2_5p2bw"]
+[ext_resource type="Script" path="res://addons/noded/project_process/scripts/process_data.gd" id="2_i8qti"]
+[ext_resource type="Script" path="res://addons/noded/scripts/noded_story_settings.gd" id="2_j1ym3"]
+
+[sub_resource type="Resource" id="Resource_hyg43"]
+script = ExtResource("2_5p2bw")
+label = "Task"
+days = 5
+
+[sub_resource type="Resource" id="Resource_o4r1q"]
+script = ExtResource("1_2ocv5")
+label = "General"
+tasks = Array[ExtResource("2_5p2bw")]([SubResource("Resource_hyg43")])
+general_features = true
+
+[sub_resource type="Resource" id="Resource_qm0pf"]
+script = ExtResource("2_i8qti")
+features = Array[ExtResource("1_2ocv5")]([SubResource("Resource_o4r1q")])
+
+[sub_resource type="Resource" id="Resource_e0s7k"]
+script = ExtResource("2_5drst")
+type = "Character"
+node_name = "char_node_2877"
+name = "Named"
+classif_name = ""
+classif_index = -1
+description = "Description"
+node_position = Vector2(0, 0)
+node_size = Vector2(0, 0)
+
+[sub_resource type="Resource" id="Resource_2tw7k"]
+script = ExtResource("2_j1ym3")
+pos_offset = Vector2(0, 0)
+cultures = Array[ExtResource("2_5drst")]([])
+characters = Array[ExtResource("2_5drst")]([SubResource("Resource_e0s7k")])
+connections = {}
+
+[resource]
+script = ExtResource("1_n6lct")
+story_settings_data = SubResource("Resource_2tw7k")
+proj_processes_data = SubResource("Resource_qm0pf")
