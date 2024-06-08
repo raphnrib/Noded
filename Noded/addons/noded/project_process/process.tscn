@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmw52por2iar0"]
+[gd_scene load_steps=4 format=3 uid="uid://cmw52por2iar0"]
 
 [ext_resource type="Theme" uid="uid://b66pwk66dh8td" path="res://addons/noded/noded_theme.tres" id="1_ct35j"]
 [ext_resource type="Script" path="res://addons/noded/project_process/process.gd" id="2_1h6xt"]
+[ext_resource type="PackedScene" uid="uid://dn64nalj7d71h" path="res://addons/noded/project_process/pick_needed_tasks.tscn" id="3_l351w"]
 
 [node name="Process" type="Control"]
 layout_mode = 3
@@ -84,5 +85,41 @@ minimap_enabled = false
 show_grid_buttons = false
 show_minimap_button = false
 show_arrange_button = false
+
+[node name="StartMark" type="GraphElement" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/TimeLineGraph"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 20.0
+offset_top = 240.0
+offset_right = 63.0
+offset_bottom = 263.0
+position_offset = Vector2(20, 240)
+draggable = false
+selectable = false
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/TimeLineGraph/StartMark"]
+layout_mode = 2
+text = "Start"
+
+[node name="FinishMark" type="GraphElement" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/TimeLineGraph"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 64.0
+offset_top = 291.0
+offset_right = 110.0
+offset_bottom = 314.0
+position_offset = Vector2(64, 291)
+draggable = false
+selectable = false
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/TimeLineGraph/FinishMark"]
+layout_mode = 2
+text = "Finish"
+
+[node name="PickNeededTasks" parent="VBoxContainer/PanelContainer" node_paths=PackedStringArray("process") instance=ExtResource("3_l351w")]
+layout_mode = 2
+process = NodePath("../../..")
 
 [connection signal="pressed" from="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/AddFeatBtn" to="." method="_on_add_feat_btn_pressed"]

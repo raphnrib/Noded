@@ -21,29 +21,64 @@ script = ExtResource("1_vs17k")
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="DelTask" type="Button" parent="MarginContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="DelTask" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
+self_modulate = Color(1, 0.41, 0.41, 1)
 layout_mode = 2
 text = "X"
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Label"
 
-[node name="TaskLabelLineEdit" type="LineEdit" parent="MarginContainer/HBoxContainer"]
+[node name="TaskLabelLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Task Name"
 
-[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer"]
+[node name="ColorPickerButton" type="ColorPickerButton" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 1, 1, 1)
+
+[node name="ShowOnTimeline" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+tooltip_text = "Go to the time line position of this task."
+text = "Show TL"
+
+[node name="LabelCompletion" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Completion"
+
+[node name="CompletionSlider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 2.0
+rounded = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LabelDuration" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 text = "Duration"
 
-[node name="DurationSpinBox" type="SpinBox" parent="MarginContainer/HBoxContainer"]
+[node name="DurationSpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 min_value = 1.0
@@ -53,10 +88,28 @@ allow_greater = true
 alignment = 1
 suffix = "days"
 
-[node name="ShowOnTimeline" type="Button" parent="MarginContainer/HBoxContainer"]
-unique_name_in_owner = true
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-text = "Timeline"
+text = "Depends On"
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+item_count = 1
+selected = 0
+popup/item_0/text = "-Task-"
+popup/item_0/id = 0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Goal:"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextEdit" type="TextEdit" parent="MarginContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+placeholder_text = "The 'WHY' this is a important task"
 
 [node name="HighLightPanel" type="PanelContainer" parent="MarginContainer"]
 unique_name_in_owner = true
@@ -65,4 +118,7 @@ layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ayiml")
 
-[connection signal="value_changed" from="MarginContainer/HBoxContainer/DurationSpinBox" to="." method="_on_duration_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/DelTask" to="." method="_on_del_task_pressed"]
+[connection signal="color_changed" from="MarginContainer/VBoxContainer/HBoxContainer/ColorPickerButton" to="." method="_on_color_picker_button_color_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer/CompletionSlider" to="." method="_on_completion_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer2/DurationSpinBox" to="." method="_on_duration_changed"]
