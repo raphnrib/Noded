@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://qv3x1g54y8q"]
+[gd_scene load_steps=4 format=3 uid="uid://qv3x1g54y8q"]
 
+[ext_resource type="Theme" uid="uid://b66pwk66dh8td" path="res://addons/noded/noded_theme.tres" id="1_o7e0b"]
 [ext_resource type="Script" path="res://addons/noded/project_process/task_container.gd" id="1_vs17k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ayiml"]
@@ -15,6 +16,8 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [node name="TaskContainer" type="PanelContainer"]
+custom_minimum_size = Vector2(512, 256)
+theme = ExtResource("1_o7e0b")
 theme_type_variation = &"IndentPanel"
 script = ExtResource("1_vs17k")
 
@@ -31,7 +34,13 @@ layout_mode = 2
 unique_name_in_owner = true
 self_modulate = Color(1, 0.41, 0.41, 1)
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 text = "X"
+
+[node name="IDLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -58,18 +67,10 @@ layout_mode = 2
 tooltip_text = "Go to the time line position of this task."
 text = "Show TL"
 
-[node name="LabelCompletion" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "Completion"
-
-[node name="CompletionSlider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 4
-size_flags_stretch_ratio = 2.0
-rounded = true
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -88,28 +89,119 @@ allow_greater = true
 alignment = 1
 suffix = "days"
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="DependenciesButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Depends On"
 
-[node name="OptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="LookForLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+visible = false
 layout_mode = 2
-item_count = 1
-selected = 0
-popup/item_0/text = "-Task-"
-popup/item_0/id = 0
+text = "Look For '"
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="LookForEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+tooltip_text = "Look for this term in the scripts to mark this task as done?"
+
+[node name="LookForSufixLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+visible = false
+layout_mode = 2
+text = "-DONE'"
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LabelCompletion" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Completion"
+
+[node name="CompletionSlider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 2.0
+rounded = true
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TaskGoalContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3/TaskGoalContainer"]
 layout_mode = 2
 text = "Goal:"
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer3/TaskGoalContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="TextEdit" type="TextEdit" parent="MarginContainer/VBoxContainer/MarginContainer"]
+[node name="DescriptEdit" type="TextEdit" parent="MarginContainer/VBoxContainer/HBoxContainer3/TaskGoalContainer/MarginContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 placeholder_text = "The 'WHY' this is a important task"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Steps"
+
+[node name="SelectPredefinedSteps" type="OptionButton" parent="MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+item_count = 2
+selected = 0
+popup/item_0/text = "Predefined"
+popup/item_0/id = 1
+popup/item_1/text = "3D Model"
+popup/item_1/id = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="StepsRoot" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="AddStepLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Add step"
+alignment = 1
 
 [node name="HighLightPanel" type="PanelContainer" parent="MarginContainer"]
 unique_name_in_owner = true
@@ -119,6 +211,12 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ayiml")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/DelTask" to="." method="_on_del_task_pressed"]
+[connection signal="text_submitted" from="MarginContainer/VBoxContainer/HBoxContainer/TaskLabelLineEdit" to="." method="_on_task_label_line_edit_text_submitted"]
 [connection signal="color_changed" from="MarginContainer/VBoxContainer/HBoxContainer/ColorPickerButton" to="." method="_on_color_picker_button_color_changed"]
-[connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer/CompletionSlider" to="." method="_on_completion_slider_value_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer2/DurationSpinBox" to="." method="_on_duration_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/DependenciesButton" to="." method="_on_dependencies_button_pressed"]
+[connection signal="text_submitted" from="MarginContainer/VBoxContainer/HBoxContainer2/LookForEdit" to="." method="_on_look_for_edit_text_submitted"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer2/CompletionSlider" to="." method="_on_completion_slider_value_changed"]
+[connection signal="text_changed" from="MarginContainer/VBoxContainer/HBoxContainer3/TaskGoalContainer/MarginContainer/DescriptEdit" to="." method="_on_descript_edit_text_changed"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer/SelectPredefinedSteps" to="." method="_on_select_predefined_steps_item_selected"]
+[connection signal="text_submitted" from="MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer/PanelContainer/VBoxContainer/AddStepLineEdit" to="." method="_on_add_step_line_edit_text_submitted"]

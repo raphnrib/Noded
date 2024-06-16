@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bu8yn47i6velb"]
+[gd_scene load_steps=9 format=3 uid="uid://bu8yn47i6velb"]
 
-[ext_resource type="PackedScene" uid="uid://di2nb5yrg3p6" path="res://addons/noded/story_telling/story.tscn" id="1_7poap"]
 [ext_resource type="Theme" uid="uid://b66pwk66dh8td" path="res://addons/noded/noded_theme.tres" id="1_gldp7"]
 [ext_resource type="Script" path="res://addons/noded/noded.gd" id="2_kpjq8"]
 [ext_resource type="PackedScene" uid="uid://24v6pb1di56u" path="res://addons/noded/story_settings/story_settings.tscn" id="3_2xsk4"]
+[ext_resource type="PackedScene" uid="uid://di2nb5yrg3p6" path="res://addons/noded/gen_game_info/game_info.tscn" id="3_7c76i"]
+[ext_resource type="PackedScene" uid="uid://b362fr07x2to0" path="res://addons/noded/checklists/check_lists.tscn" id="4_twufe"]
 [ext_resource type="PackedScene" uid="uid://cmw52por2iar0" path="res://addons/noded/project_process/process.tscn" id="5_jjsdy"]
+[ext_resource type="PackedScene" uid="uid://c55yjvrwxj82d" path="res://addons/noded/items_management/items_management.tscn" id="6_1j140"]
+[ext_resource type="PackedScene" uid="uid://nijdgt7g6glq" path="res://addons/noded/promo/promo.tscn" id="8_bgwbf"]
 
 [node name="Noded" type="Control" node_paths=PackedStringArray("header_h_box")]
 layout_mode = 3
@@ -18,6 +21,7 @@ size_flags_vertical = 3
 theme = ExtResource("1_gldp7")
 script = ExtResource("2_kpjq8")
 header_h_box = NodePath("VBoxContainer/HeaderHBox")
+skip_old = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -29,11 +33,12 @@ grow_vertical = 2
 
 [node name="HeaderHBox" type="HBoxContainer" parent="VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/HeaderHBox"]
 layout_mode = 2
-text = "Main Resource"
+text = "Project Data"
 
 [node name="Control" type="Control" parent="VBoxContainer/HeaderHBox"]
 layout_mode = 2
@@ -46,9 +51,9 @@ text = "Save"
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 2
+current_tab = 6
 
-[node name="Story Plot" parent="VBoxContainer/TabContainer" instance=ExtResource("1_7poap")]
+[node name="Game" parent="VBoxContainer/TabContainer" instance=ExtResource("3_7c76i")]
 visible = false
 layout_mode = 2
 
@@ -58,6 +63,64 @@ visible = false
 layout_mode = 2
 
 [node name="Process" parent="VBoxContainer/TabContainer" instance=ExtResource("5_jjsdy")]
+visible = false
 layout_mode = 2
 
+[node name="Items" parent="VBoxContainer/TabContainer" instance=ExtResource("6_1j140")]
+visible = false
+layout_mode = 2
+
+[node name="CheckLists" parent="VBoxContainer/TabContainer" instance=ExtResource("4_twufe")]
+visible = false
+layout_mode = 2
+
+[node name="LaunchPromo" parent="VBoxContainer/TabContainer" instance=ExtResource("8_bgwbf")]
+visible = false
+layout_mode = 2
+
+[node name="NodedSettings" type="Control" parent="VBoxContainer/TabContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/TabContainer/NodedSettings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TabContainer/NodedSettings/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/NodedSettings/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/NodedSettings/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/NodedSettings/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Default 3D Model Steps:"
+
+[node name="Default3DModelDefaultStepsEdit" type="LineEdit" parent="VBoxContainer/TabContainer/NodedSettings/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "separated, by, coma"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/TabContainer/NodedSettings/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ReloadResource" type="Button" parent="VBoxContainer/TabContainer/NodedSettings/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Try Reload Resource"
+
+[node name="SaveResource" type="Button" parent="VBoxContainer/TabContainer/NodedSettings/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Force Save Resource"
+
 [connection signal="pressed" from="VBoxContainer/HeaderHBox/SaveBtn" to="." method="_on_save_btn_pressed"]
+[connection signal="text_submitted" from="VBoxContainer/TabContainer/NodedSettings/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Default3DModelDefaultStepsEdit" to="." method="_on_default_3d_model_default_steps_edit_text_submitted"]
+[connection signal="pressed" from="VBoxContainer/TabContainer/NodedSettings/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/ReloadResource" to="." method="_on_reload_resource_pressed" binds= [true]]

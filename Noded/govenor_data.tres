@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="GovenorData" load_steps=2 format=3 uid="uid://crmdbs8yrjlv4"]
+
+[ext_resource type="Script" path="res://addons/gov_plugin/govenor_data.gd" id="1_h87yp"]
+
+[resource]
+script = ExtResource("1_h87yp")
+ignore = PackedStringArray()

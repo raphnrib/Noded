@@ -1,0 +1,345 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqaj2m5e6lnis"]
+
+[ext_resource type="Theme" uid="uid://b66pwk66dh8td" path="res://addons/noded/noded_theme.tres" id="1_1tdle"]
+[ext_resource type="Script" path="res://addons/noded/items_management/item_data_container.gd" id="1_ft8ts"]
+
+[node name="ItemDataContainer" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -428.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("1_1tdle")
+script = ExtResource("1_ft8ts")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Image" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(196, 196)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_type_variation = &"IndentPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Image"]
+layout_mode = 2
+
+[node name="IconBtn" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/Image/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+tooltip_text = "Select item image"
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="IconButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/Image/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="ModelPick" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/Image/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+tooltip_text = "No model picked! Click to select a model"
+text = "Model *"
+
+[node name="ItemIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Image/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PanelContainer4" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer4"]
+layout_mode = 2
+
+[node name="PickersRoot" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer4/Margin"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer4/Margin/PickersRoot"]
+layout_mode = 2
+text = "Resources"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer4/Margin/PickersRoot"]
+layout_mode = 2
+text = "Icon"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer4/Margin/PickersRoot"]
+layout_mode = 2
+text = "Model"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"IndentPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="ItmID" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ItmID"]
+layout_mode = 2
+text = "Itentification"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ItmID"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ItmID/HBoxContainer"]
+layout_mode = 2
+text = "ID"
+
+[node name="IDLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ItmID/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ID"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ItmID"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ItmID/HBoxContainer2"]
+layout_mode = 2
+text = "Name"
+
+[node name="NameEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ItmID/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Name"
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ItmID"]
+layout_mode = 2
+text = "Description"
+
+[node name="DescriptionEdit" type="TextEdit" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ItmID"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+placeholder_text = "Description"
+wrap_mode = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"IndentPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2"]
+layout_mode = 2
+
+[node name="Invent" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/Invent"]
+layout_mode = 2
+text = "Inventory/Storage/Acquisition"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/Invent"]
+layout_mode = 2
+columns = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/Invent/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Price"
+horizontal_alignment = 1
+
+[node name="PriceSpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/Invent/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+step = 0.05
+value = 1.0
+allow_greater = true
+alignment = 1
+prefix = "$"
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/Invent/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Min Level"
+horizontal_alignment = 1
+
+[node name="MinLvlSpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/Invent/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+step = 0.05
+value = 1.0
+allow_greater = true
+alignment = 1
+
+[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/Invent/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Stack Size"
+horizontal_alignment = 1
+
+[node name="StackSpinBox3" type="SpinBox" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/Invent/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+rounded = true
+allow_greater = true
+alignment = 1
+
+[node name="Label5" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/Invent/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Weight"
+horizontal_alignment = 1
+
+[node name="WeightSpinBox4" type="SpinBox" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/Invent/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+step = 0.05
+allow_greater = true
+alignment = 1
+suffix = "kg"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/Invent"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/Invent"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/Invent/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HFlowContainer" type="HFlowContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/Invent/PanelContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TradeableToggle" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/Invent/PanelContainer/ScrollContainer/HFlowContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+toggle_mode = true
+text = "Tradeable"
+
+[node name="DroppableToggle" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/Invent/PanelContainer/ScrollContainer/HFlowContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+toggle_mode = true
+text = "Droppable"
+
+[node name="SellableToggle" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/Invent/PanelContainer/ScrollContainer/HFlowContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+toggle_mode = true
+text = "Sellable"
+
+[node name="PanelContainer3" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"IndentPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer3"]
+layout_mode = 2
+
+[node name="Classification" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer3/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer3/MarginContainer/Classification"]
+layout_mode = 2
+text = "Classification"
+horizontal_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer3/MarginContainer/Classification"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer3/MarginContainer/Classification/HBoxContainer4"]
+layout_mode = 2
+text = "Category"
+
+[node name="CategoriyPicker" type="OptionButton" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer3/MarginContainer/Classification/HBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer3/MarginContainer/Classification"]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer3/MarginContainer/Classification/GridContainer"]
+layout_mode = 2
+text = "Rarity"
+
+[node name="RaritySlider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer3/MarginContainer/Classification/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+max_value = 4.0
+rounded = true
+
+[node name="RarityNameLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer3/MarginContainer/Classification"]
+unique_name_in_owner = true
+self_modulate = Color(0.74558, 0.74558, 0.74558, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Common"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer3/MarginContainer/Classification"]
+layout_mode = 2
+text = "Tags"
+horizontal_alignment = 1
+
+[node name="TagsEdit" type="TextEdit" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer3/MarginContainer/Classification"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "Separated by ','"
+placeholder_text = "event, quest, ranged..."
+wrap_mode = 1
+
+[connection signal="text_submitted" from="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ItmID/HBoxContainer2/NameEdit" to="." method="_on_name_edit_text_submitted"]
+[connection signal="text_changed" from="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/ItmID/DescriptionEdit" to="." method="_on_description_edit_text_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/Invent/GridContainer/PriceSpinBox" to="." method="_on_price_spin_box_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/Invent/GridContainer/MinLvlSpinBox" to="." method="_on_min_lvl_spin_box_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/Invent/GridContainer/StackSpinBox3" to="." method="_on_stack_spin_box_3_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/Invent/GridContainer/WeightSpinBox4" to="." method="_on_weight_spin_box_4_value_changed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/Invent/PanelContainer/ScrollContainer/HFlowContainer/TradeableToggle" to="." method="_on_tradeable_toggle_toggled"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/Invent/PanelContainer/ScrollContainer/HFlowContainer/DroppableToggle" to="." method="_on_droppable_toggle_toggled"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2/MarginContainer/Invent/PanelContainer/ScrollContainer/HFlowContainer/SellableToggle" to="." method="_on_sellable_toggle_toggled"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer3/MarginContainer/Classification/HBoxContainer4/CategoriyPicker" to="." method="_on_categoriy_picker_item_selected"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer3/MarginContainer/Classification/GridContainer/RaritySlider" to="." method="_on_rarity_slider_value_changed"]
+[connection signal="text_changed" from="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer3/MarginContainer/Classification/TagsEdit" to="." method="_on_tags_edit_text_changed"]

@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bt5ythu3l6p66"]
+[gd_scene load_steps=3 format=3 uid="uid://bt5ythu3l6p66"]
 
+[ext_resource type="Theme" uid="uid://b66pwk66dh8td" path="res://addons/noded/noded_theme.tres" id="1_5ihay"]
 [ext_resource type="Script" path="res://addons/noded/project_process/task_timeline.gd" id="1_nhqmc"]
 
 [node name="TaskTimeline" type="GraphElement"]
@@ -7,6 +8,7 @@ offset_left = 94.0
 offset_top = 160.0
 offset_right = 294.0
 offset_bottom = 180.0
+theme = ExtResource("1_5ihay")
 position_offset = Vector2(94, 160)
 resizable = true
 draggable = false
@@ -23,6 +25,7 @@ value = 75.0
 rounded = true
 
 [node name="Button" type="Button" parent="."]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

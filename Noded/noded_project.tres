@@ -1,32 +1,78 @@
-[gd_resource type="Resource" script_class="NodedData" load_steps=12 format=3 uid="uid://hxehbrj0w4uy"]
+[gd_resource type="Resource" script_class="NodedData" load_steps=17 format=3 uid="uid://hxehbrj0w4uy"]
 
-[ext_resource type="Script" path="res://addons/noded/project_process/scripts/feature_data.gd" id="1_2ocv5"]
-[ext_resource type="Script" path="res://addons/noded/scripts/noded_data.gd" id="1_n6lct"]
-[ext_resource type="Script" path="res://addons/noded/scripts/noded_entry.gd" id="2_5drst"]
-[ext_resource type="Script" path="res://addons/noded/project_process/scripts/task_data.gd" id="2_5p2bw"]
-[ext_resource type="Script" path="res://addons/noded/project_process/scripts/process_data.gd" id="2_i8qti"]
-[ext_resource type="Script" path="res://addons/noded/scripts/noded_story_settings.gd" id="2_j1ym3"]
+[ext_resource type="Script" path="res://addons/noded/gen_game_info/noded_game_data.gd" id="1_sbt0t"]
+[ext_resource type="Script" path="res://addons/noded/project_process/scripts/feature_data.gd" id="2_cnhjk"]
+[ext_resource type="Script" path="res://addons/noded/project_process/scripts/task_data.gd" id="3_x2aty"]
+[ext_resource type="Script" path="res://addons/noded/project_process/scripts/process_data.gd" id="4_bei0w"]
+[ext_resource type="Script" path="res://addons/noded/promo/promo_data.gd" id="5_mxgbf"]
+[ext_resource type="Script" path="res://addons/noded/scripts/noded_data.gd" id="5_spuhe"]
+[ext_resource type="Script" path="res://addons/noded/scripts/noded_entry.gd" id="6_dsn8k"]
+[ext_resource type="Script" path="res://addons/noded/scripts/noded_story_settings.gd" id="7_o5424"]
+
+[sub_resource type="Resource" id="Resource_285lv"]
+script = ExtResource("1_sbt0t")
+proj_title = "Proj New Name"
+categ_id = 8
+descript = "After the first contact with the humans, the aliens decided to take the earth for them, killing humanity by increasing the sun's radiation while staying hidden from detection. However, the human scientists at the time managed to discover that whatever was happening to the sun wasn’t permanent.
+Then, when the collapse of nature as we know began to show its symptoms and the radiation was causing all sorts of mutations in animal, vegetal and human life, three ships were finalized and sent to space to save the human race and the earth. Each one with a humanoid android  (POMOSH, RUKA). The androids would keep surveillance on earth’s radiation levels which only occurred after thousands of years.
+The aliens, most satisfied with the outcome, as they didn’t have to go to war but just wait, started living on the surface of the now almost inhabited earth. Not affected by the radiation but eager to consume, their civilization lived thousands of years but ended up destroying the planet as they did their last one. Using earth resources to its limits until a new ice age came upon them destroying their civilization and expelling them, not all of them, on a search for a new place.
+When the earth finally recovered itself and the sun’s radiation were no longer being manipulated, an era had passed and the earth was now a totally different planet from the home it was once before.
+"
+goals = ""
+lore = ""
 
 [sub_resource type="Resource" id="Resource_hyg43"]
-script = ExtResource("2_5p2bw")
-label = "Task"
+script = ExtResource("3_x2aty")
+ID = 37248
+label = "TaskOne"
+look_for = ""
 color = Color(0.771484, 1, 0.4375, 1)
 days = 5
-completion = 2
+completion = 0
+depends_on = PackedByteArray()
+description = ""
+steps = {}
+last_timeline_pos = Vector2(0, 0)
+
+[sub_resource type="Resource" id="Resource_fetcg"]
+script = ExtResource("3_x2aty")
+ID = 55263
+label = "Main Char Model"
+look_for = ""
+color = Color(1, 1, 1, 1)
+days = 15
+completion = 37
+depends_on = PackedByteArray(128)
+description = "Well.. it's the main char so it's pretty important..."
+steps = {
+" animations": true,
+" shader": false,
+" textures": false,
+"mesh": true
+}
+last_timeline_pos = Vector2(160, 32)
 
 [sub_resource type="Resource" id="Resource_o4r1q"]
-script = ExtResource("1_2ocv5")
+script = ExtResource("2_cnhjk")
 label = "General"
 on_timeline = true
-tasks = Array[ExtResource("2_5p2bw")]([SubResource("Resource_hyg43")])
+tasks = Array[ExtResource("3_x2aty")]([SubResource("Resource_hyg43"), SubResource("Resource_fetcg")])
 general_features = true
 
 [sub_resource type="Resource" id="Resource_qm0pf"]
-script = ExtResource("2_i8qti")
-features = Array[ExtResource("1_2ocv5")]([SubResource("Resource_o4r1q")])
+script = ExtResource("4_bei0w")
+features = Array[ExtResource("2_cnhjk")]([SubResource("Resource_o4r1q")])
+
+[sub_resource type="Resource" id="Resource_y8crx"]
+script = ExtResource("5_mxgbf")
+web_page = "http://"
+itch_io_page = "http://"
+steam_page = "http://"
+screenshots_folder = "D:/Creations for Game&Apps/A Team/Images/Items"
+launch_trailer = "D:/Godot Projects/Noded/Noded/icon.svg"
 
 [sub_resource type="Resource" id="Resource_e0s7k"]
-script = ExtResource("2_5drst")
+script = ExtResource("6_dsn8k")
 type = "Character"
 node_name = "char_node_2877"
 name = "Named"
@@ -37,13 +83,18 @@ node_position = Vector2(0, 0)
 node_size = Vector2(0, 0)
 
 [sub_resource type="Resource" id="Resource_2tw7k"]
-script = ExtResource("2_j1ym3")
+script = ExtResource("7_o5424")
 pos_offset = Vector2(0, 0)
-cultures = Array[ExtResource("2_5drst")]([])
-characters = Array[ExtResource("2_5drst")]([SubResource("Resource_e0s7k")])
+cultures = Array[ExtResource("6_dsn8k")]([])
+characters = Array[ExtResource("6_dsn8k")]([SubResource("Resource_e0s7k")])
 connections = {}
 
 [resource]
-script = ExtResource("1_n6lct")
+script = ExtResource("5_spuhe")
 story_settings_data = SubResource("Resource_2tw7k")
 proj_processes_data = SubResource("Resource_qm0pf")
+game_meta_data = SubResource("Resource_285lv")
+promo_data = SubResource("Resource_y8crx")
+items_folder = "res://items"
+item_created = 1
+model_3d_steps = "mesh, animations, textures, shader"

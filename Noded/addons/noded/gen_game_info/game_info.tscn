@@ -1,0 +1,331 @@
+[gd_scene load_steps=3 format=3 uid="uid://di2nb5yrg3p6"]
+
+[ext_resource type="Script" path="res://addons/noded/gen_game_info/game_info.gd" id="1_0wgcb"]
+[ext_resource type="Theme" uid="uid://b66pwk66dh8td" path="res://addons/noded/noded_theme.tres" id="1_dgsjk"]
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_dgsjk")
+script = ExtResource("1_0wgcb")
+
+[node name="GraphEdit" type="GraphEdit" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GraphNode" type="GraphNode" parent="GraphEdit"]
+layout_mode = 0
+offset_left = 343.0
+offset_top = 147.0
+offset_right = 466.0
+offset_bottom = 202.0
+mouse_filter = 1
+position_offset = Vector2(343, 147)
+
+[node name="GraphElement" type="GraphElement" parent="GraphEdit"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 110.0
+offset_right = 286.0
+offset_bottom = 291.0
+position_offset = Vector2(65, 110)
+
+[node name="PanelContainer" type="PanelContainer" parent="GraphEdit/GraphElement"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GraphEdit/GraphElement/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GraphEdit/GraphElement/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Main Plot"
+
+[node name="TextEdit" type="TextEdit" parent="GraphEdit/GraphElement/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "Outline the primary storyline. Identify the main conflict, key events, and the resolution."
+wrap_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "About the project"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"IndentPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Project Title"
+
+[node name="ProjTitleLineEdit" type="LineEdit" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Category"
+
+[node name="GameTypeOpts" type="OptionButton" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+item_count = 77
+selected = 0
+popup/item_0/text = "Action Game"
+popup/item_0/id = 0
+popup/item_1/text = "Platformer"
+popup/item_1/id = 1
+popup/item_2/text = "Shooter Game"
+popup/item_2/id = 2
+popup/item_3/text = "First-Person Shooter"
+popup/item_3/id = 3
+popup/item_4/text = "Third-Person Shooter"
+popup/item_4/id = 4
+popup/item_5/text = "Fighting Game"
+popup/item_5/id = 5
+popup/item_6/text = "Beat 'em Up"
+popup/item_6/id = 6
+popup/item_7/text = "Stealth Game"
+popup/item_7/id = 7
+popup/item_8/text = "Survival Game"
+popup/item_8/id = 8
+popup/item_9/text = "Rhythm Game"
+popup/item_9/id = 9
+popup/item_10/text = "Adventure Game"
+popup/item_10/id = 10
+popup/item_11/text = "Text Adventure"
+popup/item_11/id = 11
+popup/item_12/text = "Graphic Adventure"
+popup/item_12/id = 12
+popup/item_13/text = "Visual Novel"
+popup/item_13/id = 13
+popup/item_14/text = "Interactive Movie"
+popup/item_14/id = 14
+popup/item_15/text = "Point-and-Click Adventure"
+popup/item_15/id = 15
+popup/item_16/text = "Role-Playing Game"
+popup/item_16/id = 16
+popup/item_17/text = "Action RPG"
+popup/item_17/id = 17
+popup/item_18/text = "Tactical RPG"
+popup/item_18/id = 18
+popup/item_19/text = "Japanese RPG"
+popup/item_19/id = 19
+popup/item_20/text = "Western RPG"
+popup/item_20/id = 20
+popup/item_21/text = "Massively Multiplayer Online RPG"
+popup/item_21/id = 21
+popup/item_22/text = "Roguelike"
+popup/item_22/id = 22
+popup/item_23/text = "Roguelite"
+popup/item_23/id = 23
+popup/item_24/text = "Simulation Game"
+popup/item_24/id = 24
+popup/item_25/text = "Life Simulation"
+popup/item_25/id = 25
+popup/item_26/text = "Vehicle Simulation"
+popup/item_26/id = 26
+popup/item_27/text = "Flight Simulator"
+popup/item_27/id = 27
+popup/item_28/text = "Racing Simulator"
+popup/item_28/id = 28
+popup/item_29/text = "Construction and Management Simulation"
+popup/item_29/id = 29
+popup/item_30/text = "Sports Simulation"
+popup/item_30/id = 30
+popup/item_31/text = "Strategy Game"
+popup/item_31/id = 31
+popup/item_32/text = "Real-Time Strategy"
+popup/item_32/id = 32
+popup/item_33/text = "Turn-Based Strategy"
+popup/item_33/id = 33
+popup/item_34/text = "4X Game"
+popup/item_34/id = 34
+popup/item_35/text = "Tower Defense"
+popup/item_35/id = 35
+popup/item_36/text = "MOBA"
+popup/item_36/id = 36
+popup/item_37/text = "Grand Strategy"
+popup/item_37/id = 37
+popup/item_38/text = "Sports Game"
+popup/item_38/id = 38
+popup/item_39/text = "Traditional Sport"
+popup/item_39/id = 39
+popup/item_40/text = "Extreme Sport"
+popup/item_40/id = 40
+popup/item_41/text = "Racing Game"
+popup/item_41/id = 41
+popup/item_42/text = "Sports Management"
+popup/item_42/id = 42
+popup/item_43/text = "Puzzle Game"
+popup/item_43/id = 43
+popup/item_44/text = "Logic Puzzle"
+popup/item_44/id = 44
+popup/item_45/text = "Match-3 Game"
+popup/item_45/id = 45
+popup/item_46/text = "Physics-Based Puzzle"
+popup/item_46/id = 46
+popup/item_47/text = "Hidden Object Game"
+popup/item_47/id = 47
+popup/item_48/text = "Party Game"
+popup/item_48/id = 48
+popup/item_49/text = "Trivia Game"
+popup/item_49/id = 49
+popup/item_50/text = "Board Game"
+popup/item_50/id = 50
+popup/item_51/text = "Card Game"
+popup/item_51/id = 51
+popup/item_52/text = "Minigame Collection"
+popup/item_52/id = 52
+popup/item_53/text = "Casual Game"
+popup/item_53/id = 53
+popup/item_54/text = "Idle Game"
+popup/item_54/id = 54
+popup/item_55/text = "Mobile Game"
+popup/item_55/id = 55
+popup/item_56/text = "Social Network Game"
+popup/item_56/id = 56
+popup/item_57/text = "Horror Game"
+popup/item_57/id = 57
+popup/item_58/text = "Survival Horror"
+popup/item_58/id = 58
+popup/item_59/text = "Psychological Horror"
+popup/item_59/id = 59
+popup/item_60/text = "Music and Rhythm Game"
+popup/item_60/id = 60
+popup/item_61/text = "Dance Game"
+popup/item_61/id = 61
+popup/item_62/text = "Instrument Simulation"
+popup/item_62/id = 62
+popup/item_63/text = "Sandbox Game"
+popup/item_63/id = 63
+popup/item_64/text = "Open World Game"
+popup/item_64/id = 64
+popup/item_65/text = "Creative Game"
+popup/item_65/id = 65
+popup/item_66/text = "Educational Game"
+popup/item_66/id = 66
+popup/item_67/text = "Edutainment"
+popup/item_67/id = 67
+popup/item_68/text = "Brain Training"
+popup/item_68/id = 68
+popup/item_69/text = "Language Learning Game"
+popup/item_69/id = 69
+popup/item_70/text = "VR Game"
+popup/item_70/id = 70
+popup/item_71/text = "AR Game"
+popup/item_71/id = 71
+popup/item_72/text = "Virtual Reality Game"
+popup/item_72/id = 72
+popup/item_73/text = "Augmented Reality Game"
+popup/item_73/id = 73
+popup/item_74/text = "Indie Game"
+popup/item_74/id = 74
+popup/item_75/text = "Experimental Game"
+popup/item_75/id = 75
+popup/item_76/text = "Niche Genre"
+popup/item_76/id = 76
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Description"
+horizontal_alignment = 1
+
+[node name="DescriptionTextEdit" type="TextEdit" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+wrap_mode = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Goals & Challenges"
+horizontal_alignment = 1
+
+[node name="GoalsTextEdit" type="TextEdit" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+wrap_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Lore"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"IndentPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="LoreTextEdit" type="TextEdit" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+wrap_mode = 1

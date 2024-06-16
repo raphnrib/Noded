@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvc4fa2d1twt6"]
+
+[ext_resource type="Script" path="res://addons/noded/project_process/step_container.gd" id="1_e15r5"]
+
+[node name="StepContainer" type="HBoxContainer"]
+script = ExtResource("1_e15r5")
+
+[node name="RemoveStep" type="Button" parent="."]
+self_modulate = Color(1, 0.42, 0.42, 1)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "x"
+
+[node name="CheckButton" type="CheckButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Step Name"
+
+[connection signal="pressed" from="RemoveStep" to="." method="_on_remove_step_pressed"]
+[connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]

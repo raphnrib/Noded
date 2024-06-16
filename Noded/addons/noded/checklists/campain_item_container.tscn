@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfsh2unsptgya"]
+
+[ext_resource type="Script" path="res://addons/noded/checklists/campain_item_container.gd" id="1_1sbym"]
+
+[node name="CampainItemContainer" type="HBoxContainer"]
+script = ExtResource("1_1sbym")
+
+[node name="Button" type="Button" parent="."]
+self_modulate = Color(1, 0.51, 0.51, 1)
+layout_mode = 2
+text = "x"
+
+[node name="CheckButton" type="CheckButton" parent="."]
+layout_mode = 2
+text = "Check Button"

@@ -16,77 +16,65 @@ size_flags_vertical = 3
 theme = ExtResource("1_ct35j")
 script = ExtResource("2_1h6xt")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+tab_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-tooltip_text = "A 'Feature' is anything you want your project have. Therefore, you need to create it. Such as a 3D model or a script that makes it rain."
-mouse_filter = 1
-text = "Project Features"
-horizontal_alignment = 1
-
-[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Time line"
-horizontal_alignment = 1
-
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="Tasks" type="ScrollContainer" parent="TabContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/ScrollContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="TabContainer/Tasks"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_type_variation = &"IndentPanel"
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/ScrollContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Tasks/PanelContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/ScrollContainer/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Tasks/PanelContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="FeaturesRoot" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/ScrollContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="FeaturesRoot" type="VBoxContainer" parent="TabContainer/Tasks/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_constants/separation = 8
 
-[node name="AddFeatBtn" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/ScrollContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="AddFeatBtn" type="Button" parent="TabContainer/Tasks/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "- Add Feature -"
 
-[node name="TimeLineGraph" type="GraphEdit" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="Timeline" type="PanelContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Timeline"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Timeline/MarginContainer"]
+layout_mode = 2
+
+[node name="TimeLineGraph" type="GraphEdit" parent="TabContainer/Timeline/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+show_grid = false
+snapping_distance = 32
 minimap_enabled = false
 show_grid_buttons = false
 show_minimap_button = false
 show_arrange_button = false
 
-[node name="StartMark" type="GraphElement" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/TimeLineGraph"]
+[node name="StartMark" type="GraphElement" parent="TabContainer/Timeline/MarginContainer/HBoxContainer/TimeLineGraph"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 0
@@ -98,11 +86,11 @@ position_offset = Vector2(20, 240)
 draggable = false
 selectable = false
 
-[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/TimeLineGraph/StartMark"]
+[node name="Label" type="Label" parent="TabContainer/Timeline/MarginContainer/HBoxContainer/TimeLineGraph/StartMark"]
 layout_mode = 2
 text = "Start"
 
-[node name="FinishMark" type="GraphElement" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/TimeLineGraph"]
+[node name="FinishMark" type="GraphElement" parent="TabContainer/Timeline/MarginContainer/HBoxContainer/TimeLineGraph"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 0
@@ -114,12 +102,22 @@ position_offset = Vector2(64, 291)
 draggable = false
 selectable = false
 
-[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/TimeLineGraph/FinishMark"]
+[node name="Label" type="Label" parent="TabContainer/Timeline/MarginContainer/HBoxContainer/TimeLineGraph/FinishMark"]
 layout_mode = 2
 text = "Finish"
 
-[node name="PickNeededTasks" parent="VBoxContainer/PanelContainer" node_paths=PackedStringArray("process") instance=ExtResource("3_l351w")]
+[node name="TaskPicker" parent="TabContainer/Timeline" node_paths=PackedStringArray("process") instance=ExtResource("3_l351w")]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 process = NodePath("../../..")
 
-[connection signal="pressed" from="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/ScrollContainer/PanelContainer/MarginContainer/VBoxContainer/AddFeatBtn" to="." method="_on_add_feat_btn_pressed"]
+[node name="disposables" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="tab_changed" from="TabContainer" to="." method="_on_tab_container_tab_changed"]
+[connection signal="pressed" from="TabContainer/Tasks/PanelContainer/MarginContainer/VBoxContainer/AddFeatBtn" to="." method="_on_add_feat_btn_pressed"]

@@ -13,6 +13,7 @@ var data : StorySettingsData
 var entry_node = preload("res://addons/noded/story_settings/settings_entry_node.tscn")
 
 
+## CALLBACKS -----------------------------------------------------------------##
 func _ready():
 	add_menu_btn.visible = false
 	
@@ -38,6 +39,20 @@ func setup_from_data(n_data:NodedData):
 			var n_node := create_entry_node()
 			n_node.setup_from_data(c, false)
 
+
+## SAVE LOAD -----------------------------------------------------------------##
+
+func save() -> Dictionary:
+	
+	return {}
+
+func load_dictionary(dict:Dictionary, main:NodedMain) -> void:
+	
+	print(name, " Noded data updated!")
+	pass
+
+
+## FUNCTIONALITY -------------------------------------------------------------##
 
 func clear_graph_node():
 	for c in graph_edit.get_children():

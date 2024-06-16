@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2nqrktdhlck8"]
+
+[ext_resource type="Script" path="res://addons/noded/checklists/campain_container.gd" id="1_5dusp"]
+[ext_resource type="PackedScene" uid="uid://cfsh2unsptgya" path="res://addons/noded/checklists/campain_item_container.tscn" id="2_7didw"]
+
+[node name="CampainContainer" type="VBoxContainer"]
+script = ExtResource("1_5dusp")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+self_modulate = Color(1, 0.44, 0.44, 1)
+layout_mode = 2
+text = "x"
+
+[node name="Campain Name" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Campain Name"
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_type_variation = &"IndentPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarksRoot" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CampainItemContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MarksRoot" instance=ExtResource("2_7didw")]
+layout_mode = 2
+
+[node name="AddLineEdit" type="LineEdit" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Add Mark"
+
+[connection signal="text_submitted" from="PanelContainer/MarginContainer/VBoxContainer/AddLineEdit" to="." method="_on_add_line_edit_text_submitted"]
